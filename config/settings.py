@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^yb$7-4*^3*@(-q*#u%n%g@vf%$2q128hb@1x0uav6yamu)h=3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+
 
 
 # Application definition
@@ -122,3 +122,11 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/accounts/login/"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://eason8822.zeabur.app",
+]
+
+ALLOWED_HOSTS = [
+    "eason8822.zeabur.app",
+]
