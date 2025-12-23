@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Matches</title></head>
+<body>
+  <h2>球賽紀錄</h2>
+
+  <form method="post" action="{% url 'matches:create' %}">
+    {% csrf_token %}
+    <p>日期 <input type="date" name="date"></p>
+    <p>隊名 <input name="team"></p>
+    <p>對手 <input name="opponent"></p>
+    <p>我方 <input type="number" name="score_for" min="0"></p>
+    <p>對方 <input type="number" name="score_against" min="0"></p>
+    <p>備註 <input name="note"></p>
+    <button type="submit">新增</button>
+  </form>
+
+  <hr>
+
+  <ul>
+    {% for m in matches %}
+      <li>
+        {{ m.date }} {{ m.team }} vs {{ m.opponent }} {{ m.score_for }}:{{ m.score_against }} ({{ m.result }})
+      </li>
+    {% empty %}
+      <li>目前沒有資料</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
